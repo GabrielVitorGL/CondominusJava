@@ -9,7 +9,6 @@ import org.aspectj.weaver.ast.Or;
 @Entity
 @Table(name = "Sindico")
 public class Sindico {
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_sindico")

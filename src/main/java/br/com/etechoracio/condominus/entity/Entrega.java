@@ -1,5 +1,6 @@
 package br.com.etechoracio.condominus.entity;
 
+import br.com.etechoracio.condominus.enums.StatusEnum;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
@@ -15,13 +16,20 @@ public class Entrega {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_entrega")
     private Long id;
+
     @Column(name = "remetente")
     private String remetente;
+
     @Column(name = "data_entrega")
     private LocalDate dataEntrega;
+
     @Column(name = "data_retirada")
     private LocalDate dataRetirada;
+
+    @Column(name = "status_")
+    private StatusEnum status;
+
     @ManyToOne
-    @JoinColumn(name = "id_morador_entre")
-    private Morador morador;
+    @JoinColumn(name = "id_pessoa_entre")
+    private Pessoa pessoa;
 }

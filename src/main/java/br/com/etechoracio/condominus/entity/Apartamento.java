@@ -1,5 +1,6 @@
 package br.com.etechoracio.condominus.entity;
 
+import br.com.etechoracio.condominus.enums.StatusEnum;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
@@ -15,11 +16,17 @@ public class Apartamento {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_apartamento")
     private Long id;
+
     @Column(name = "telefone_apartamento")
     private String telefone;
+
     @Column(name = "numero")
     private String numero;
-    @ManyToOne
+
+    @Column(name = "status_")
+    private StatusEnum status;
+
+    @OneToMany
     @JoinColumn(name = "id_condominio_apart")
     private Condominio condominio;
 }

@@ -1,4 +1,5 @@
 package br.com.etechoracio.condominus.entity;
+import br.com.etechoracio.condominus.enums.StatusEnum;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
@@ -19,4 +20,8 @@ public class Condominio {
 
     @Column(name = "endereco")
     private String endereco;
+
+    @Enumerated (EnumType.STRING)
+    @Column (name = "status_")
+    private StatusEnum status;
 }

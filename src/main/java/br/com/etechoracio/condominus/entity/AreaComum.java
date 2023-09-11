@@ -1,5 +1,6 @@
 package br.com.etechoracio.condominus.entity;
 
+import br.com.etechoracio.condominus.enums.StatusEnum;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
@@ -15,8 +16,13 @@ public class AreaComum {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_areacomum")
     private Long id;
+
     @Column(name = "nome_areacomum")
-    private LocalDate dataEntrega;
+    private String nome;
+
     @Column(name = "capacidade")
     private int capacidade;
+
+    @Column(name = "status_")
+    private StatusEnum status;
 }

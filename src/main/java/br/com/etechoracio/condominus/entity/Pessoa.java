@@ -14,26 +14,30 @@ public class Pessoa {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column (name = "Id")
+    @Column (name = "id_pessoa")
     private Long id;
 
-    @Column (name = "Cpf")
+    @Column (name = "nome_pessoa")
+    private String nome;
+
+    @Column (name = "cpf_pessoa")
     private String cpf;
 
-    @Column (name = "Telefone")
+    @Column (name = "perfil_pessoa")
+    private String perfil;
+
+    @Column (name = "telefone_pessoa")
     private String telefone;
 
-    @Column (name = "Perfil")
-    private PerfilEnum perfil;
+    @Column (name = "status_pessoa")
+    private PerfilEnum perfilEnum;
 
-    @Column (name = "Status")
-    private StatusEnum status;
-
-    @ManyToMany
-    @JoinTable (name = "")
+    @ManyToOne
+    @JoinTable (name = "id_condominio")
     private Condominio condominio;
 
     @ManyToMany
-    @JoinColumn (name = "")
+    @JoinTable(name = "pessoa_apartamento", joinColumns = @JoinColumn(name = "id_pessoa_rela"),
+            inverseJoinColumns = @JoinColumn (name = "id_apartamento_rela"))
     private Apartamento apartamento;
 }
